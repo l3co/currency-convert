@@ -192,6 +192,47 @@
         },
         "x-codegen-request-body-name": "body"
       }
+    },
+    "/currency": {
+      "post": {
+        "tags": [
+          "currency"
+        ],
+        "summary": "Create a currency",
+        "operationId": "createCurrency",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/Currency"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrencyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "content": {}
+          },
+          "404": {
+            "description": "User not found",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
     }
   },
   "components": {
@@ -218,6 +259,52 @@
             "type": "string"
           },
           "email": {
+            "type": "string"
+          }
+        }
+      },
+      "Currency": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "source_currency": {
+            "type": "string"
+          },
+          "destination_currency": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "CurrencyResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "user_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "source_currency": {
+            "type": "string"
+          },
+          "destination_currency": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "tax": {
+            "type": "string"
+          },
+          "datetime": {
             "type": "string"
           }
         }
