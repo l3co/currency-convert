@@ -1,12 +1,14 @@
+const service = require('../services/UserService')
+
 class UserController {
-    static listAll(req, res) {
-        return res.json([
-            {
-                id: 1,
-                name: 'Leandro Costa',
-                email: 'lcosta.sp.br@gmail.com'
-            }
-        ])
+
+    static async listAll(req, res) {
+        try {
+            const users = await service.listAll()
+            return res.json(users)
+        } catch (err) {
+            return res.json({ message: err.message })
+        }
     }
 
     static findByID(req, res) {
