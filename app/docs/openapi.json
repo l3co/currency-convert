@@ -276,7 +276,7 @@
           "destination_currency": {
             "type": "string"
           },
-          "value": {
+          "input_value": {
             "type": "number"
           }
         }
@@ -298,7 +298,10 @@
           "destination_currency": {
             "type": "string"
           },
-          "value": {
+          "input_value": {
+            "type": "number"
+          },
+          "output_value": {
             "type": "number"
           },
           "tax": {
