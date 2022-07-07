@@ -30,7 +30,6 @@ class UserController {
     }
 
     static delete(req, res) {
-        const { id } = req.params
         return res.status(204).send()
     }
 }
