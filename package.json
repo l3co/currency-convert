@@ -20,12 +20,14 @@
   "homepage": "https://github.com/l3costa/currency-convert#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "path": "^0.12.7",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.2",
     "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
+    "eslint": "^8.19.0",
     "nodemon": "^2.0.19",
     "sequelize-cli": "^6.4.1"
   }
