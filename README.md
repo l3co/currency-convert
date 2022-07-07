@@ -28,17 +28,17 @@ docker run --name=currency -d -p 5432:5432 \
 
 ## Apply Migrations
 
+This command generate database structure.
+
 ```bash
 npx sequelize-cli db:migrate
 ```
 
-This command generate database structure.
+This command load some default data into database
 
 ```bash
 npx sequelize db:seed:all
 ```
-
-This command load some default date into database
 
 ## How to Run test
 
