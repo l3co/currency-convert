@@ -1,6 +1,12 @@
 {
     "conventionalCommits.scopes": [
         "setup",
-        "api-docs"
+        "api-docs",
+        "settings",
+        "user",
+        "currency",
+        "database",
+        "unit-test",
+        "integration-test"
     ]
 }
