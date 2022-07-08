@@ -6,9 +6,9 @@ const { swaggerUi, swaggerDocument } = require('./docRoute')
 
 module.exports = app => {
     app.use(
+        express.json(),
         user,
-        currency,
-        express.json()
+        currency
     )
 
     // DOC
