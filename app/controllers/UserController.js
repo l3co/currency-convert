@@ -2,7 +2,7 @@ const service = require('../services/UserService')
 
 class UserController {
 
-    static async listAll(req, res) {
+    static async listAll(_, res) {
         try {
             const users = await service.listAll()
             return res.json(users)
@@ -11,28 +11,45 @@ class UserController {
         }
     }
 
-    static findByID(req, res) {
+    static async findByID(req, res) {
         const { id } = req.params
-        return res.json({
-            id: id,
-            name: 'Leandro Costa',
-            email: 'lcosta.sp.br@gmail.com'
-        })
+        try {
+            const user = await service.findByID(id)
+            return user ? res.json(user) : res.status(404).json({ message: 'User not found' })
+        } catch (err) {
+            return res.status(400).json({ message: err.message })
+        }
     }
 
-    static create(req, res) {
-        return res.status(201).send()
+    static async create(req, res) {
+        try {
+            const user = req.body
+            await service.create(user)
+            return res.status(201).send()
+        } catch (err) {
+            return res.status(400).json({ message: err.message })
+        }
     }
 
-    static update(req, res) {
+    static async update(req, res) {
         const { id } = req.params
-        const { user } = req.body
-        console.log(user);
-        return res.status(200).json({ id: id, ...user })
+        const user = req.body
+        try {
+            const userResponse = await service.update(id, user)
+            return res.status(200).json(userResponse)
+        } catch (error) {
+            return res.status(400).json({ message: 'Error to update user' })
+        }
     }
 
-    static delete(req, res) {
-        return res.status(204).send()
+    static async delete(req, res) {
+        try {
+            const { id } = req.params
+            await service.delete(id)
+            return res.status(204).send()
+        } catch (error) {
+            return res.status(400).json({ message: 'Error to delete user' })
+        }
     }
 }
 
