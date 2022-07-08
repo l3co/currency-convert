@@ -1,27 +1,27 @@
-const { User } = require('../../infra/database/models')
-
 class UserService {
 
-    static async listAll() {
-        return await User.findAll()
+    constructor(repository) {
+        this.repository = repository;
     }
 
-    static async findByID(id) {
-        return await User.findOne({
-            where: { id: id }
-        })
+    async listAll() {
+        return await this.repository.listAll();
     }
 
-    static async create(user) {
-        return await User.create(user)
+    async findByID(id) {
+        return await this.repository.findByID(id);
     }
 
-    static async update(id, user) {
-        return await User.update(user, { where: { id: id } })
+    async create(user) {
+        return await this.repository.create(user);
     }
 
-    static async delete(id) {
-        return await User.destroy({ where: { id: id } })
+    async update(id, user) {
+        return await this.repository.update(id, user);
+    }
+
+    async delete(id) {
+        return await this.repository.delete(id);
     }
 }
 
