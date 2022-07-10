@@ -26,6 +26,13 @@ docker run --name=currency -d -p 5432:5432 \
 -e POSTGRES_DB=currency postgres
 ``` 
 
+## Environments Variables
+
+```bash
+export PORT=3001 # default port is 3000
+export DATABASE_URL='postgres://sa:sa@localhost:5432/currency'
+```` 
+
 ## Apply Migrations
 
 This command generate database structure.
@@ -42,7 +49,18 @@ npx sequelize db:seed:all
 
 ## How to Run test
 
+This project has integration test and unit test. To run our test is necessary to run a or provision a postgres database for test we recommended that name like this. 
+
 ```bash
+docker run --name=currency -d -p 5432:5432 \
+-e POSTGRES_PASSWORD=sa \
+-e POSTGRES_USER=sa \
+-e POSTGRES_DB=currency_test postgres
+
+export NODE_ENV=test
+
+npx sequelize-cli db:migrate
+
 npm run test
 ```
 
