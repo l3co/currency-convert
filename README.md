@@ -74,10 +74,6 @@ npm run dev
 
 você pode acessar nossa documentação da API em `/api-docs`.
 
-## RUN APP with docker-compose
-
-// TODO create docker compose file
-
 ## Access our APP
 
-// TODO add heroku URL here
+https://conversor-de-moedas-leco.herokuapp.com/api-docs/
