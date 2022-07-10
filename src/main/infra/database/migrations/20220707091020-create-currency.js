@@ -8,20 +8,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      source_currency: {
+      from: {
         type: Sequelize.STRING
       },
-      destination_currency: {
+      to: {
         type: Sequelize.STRING
       },
       tax: {
         type: Sequelize.STRING
       },
-      input_value: {
+      value: {
         type: Sequelize.DECIMAL
       },
-      output_value: {
+      result: {
         type: Sequelize.DECIMAL
+      },
+      date: {
+        type: Sequelize.DATE
       },
       user_id: {
         allowNull: false,

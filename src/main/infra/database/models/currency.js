@@ -16,11 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Currency.init({
-    source_currency: DataTypes.STRING,
-    destination_currency: DataTypes.STRING,
+    from: DataTypes.STRING,
+    to: DataTypes.STRING,
     tax: DataTypes.STRING,
-    input_value: DataTypes.NUMBER,
-    output_value: DataTypes.NUMBER
+    value: DataTypes.NUMBER,
+    result: DataTypes.NUMBER,
+    date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Currency',

@@ -1,7 +1,7 @@
 class Currency {
 
-    constructor(userID, to, from, value) {
-        this.userID = userID;
+    constructor(user_id, to, from, value) {
+        this.user_id = user_id;
         this.to = to;
         this.from = from;
         this.value = value;
