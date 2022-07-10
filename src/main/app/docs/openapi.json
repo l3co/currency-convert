@@ -288,13 +288,13 @@
             "type": "integer",
             "format": "int64"
           },
-          "source_currency": {
+          "to": {
             "type": "string"
           },
-          "destination_currency": {
+          "from": {
             "type": "string"
           },
-          "input_value": {
+          "value": {
             "type": "number"
           }
         }
@@ -310,16 +310,16 @@
             "type": "integer",
             "format": "int64"
           },
-          "source_currency": {
+          "to": {
             "type": "string"
           },
-          "destination_currency": {
+          "from": {
             "type": "string"
           },
-          "input_value": {
+          "value": {
             "type": "number"
           },
-          "output_value": {
+          "result": {
             "type": "number"
           },
           "tax": {
