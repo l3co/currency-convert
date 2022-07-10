@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon ./src/main/app/index.js \"npm run lint\"",
     "lint": "eslint api --fix",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
     "test": "jest"
   },
   "repository": {
