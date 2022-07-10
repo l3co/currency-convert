@@ -9,21 +9,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       from: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       to: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       tax: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       value: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
       result: {
+        allowNull: false,
         type: Sequelize.DECIMAL
       },
       date: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       user_id: {
