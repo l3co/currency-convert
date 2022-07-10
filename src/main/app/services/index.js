@@ -3,8 +3,9 @@ const CurrencyRepository = require('../../infra/database/repositories/CurrencyRe
 
 const CurrencyService = require('./CurrencyService')
 const UserService = require('./UserService')
+const ExchangeApi = require('../../infra/gateway/ExchangeApi')
 
 module.exports = {
-    CurrencyService: new CurrencyService(CurrencyRepository),
+    CurrencyService: new CurrencyService(CurrencyRepository, new ExchangeApi()),
     UserService: new UserService(UserRepository)
 }
