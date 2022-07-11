@@ -1,7 +1,8 @@
+const process = require('process')
 const axios = require('axios').default;
 
 const headers = {
-    apikey: "eASG9knlTzKKnRwN8r88lNTy9h0RniFz"
+    apikey: process.env.EXCHANGE_TOKEN
 }
 
 class ExchangeApi {
