@@ -1,0 +1,28 @@
+version: '3'
+services:
+  currency-convert-app:
+    container_name: currency-convert-app
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://sa:sa@postgres:5432/currency
+      PORT: 3000
+    command: [ "npx sequelize-cli db:migrate " ]
+
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    restart: always
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: sa
+      POSTGRES_PASSWORD: sa
+      POSTGRES_DB: currency
