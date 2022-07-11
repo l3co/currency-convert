@@ -1,15 +1,17 @@
-const { User } = require('../models')
+const { User, Currency } = require('../models')
 
 class UserRepository {
 
     static async listAll() {
-        return await User.findAll()
+        return await User
+            .findAll({ include: { model: Currency, as: 'Currencies' } })
     }
 
     static async findByID(id) {
-        return await User.findOne({
-            where: { id: id }
-        })
+        return await User.findOne(
+            { include: { model: Currency, as: 'Currencies' } },
+            { where: { id: id } }
+        )
     }
 
     static async create(user) {
